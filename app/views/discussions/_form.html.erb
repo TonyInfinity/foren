@@ -1,23 +1,23 @@
 <%= simple_form_for(@discussion) do |f| %>
   <%= f.error_notification %>
-
+<div class="box">
   <div class="field">
     <div class="control">
-      <%= f.input :title, required: true, input_html: { class: 'input' }, wrapper: false, label_html: { class: "label" } %>
+      <%= f.input :title, required: true, input_html: { class: 'input' }, wrapper: false, label_html: { class: "label" }, label: 'Tiêu đề' %>
     </div>
   </div>
 
   <div class="field">
     <div class="control">
-      <%= f.input :content, required: true, input_html: { class: 'textarea' }, wrapper: false, label_html: { class: "label" } %>
+      <%= f.input :content, required: true, input_html: { class: 'textarea' }, wrapper: false, label_html: { class: "label" }, label: "Nội dung" %>
     </div>
   </div>
 
   <div class="field">
-    <label class="label">Channel</label>
+    <%= f.label "Chọn chủ đề", class: "label", wrapper: false, required: true %>
     <div class="control has-icons-left">
       <span class="select">
-        <%= f.input_field :channel_id, collection:@channels.map { |c| [c.channel, c.id] }, prompt: "Select channel" %>
+        <%= f.input_field :channel_id, required: true, collection:@channels.map { |c| [c.channel, c.id] }, prompt: "Chủ đề" %>
       </span>
       <span class="icon is-small is-left">
         <i class="fa fa-tag"></i>
@@ -27,8 +27,10 @@
 
   <div class="field">
     <div class="control">
-      <%= f.button :submit, class:"button is-info" %>
+      <!--<%= f.button :submit, class: "button is-info" %>-->
+      <%= f.submit "Đăng câu hỏi", class: "button is-info" %>
     </div>
   </div>
 
 <% end %>
+</div>

@@ -1,15 +1,15 @@
 <div class="column is-3 is-offset-1">
-  <h3 class="title is-5 has-text-grey-light">Channels</h3>
+  <h3 class="title is-5 has-text-grey-light">Chủ đề</h3>
 
-  <ul class="list">
+  <div class="tags">
     <% @channels.each do |c| %>
-    <li><%= link_to c.channel, c %></li>
+    <span><%= link_to c.channel, c, class: "tag" %></span>
     <% end %>
-  </ul>
+  </div>
 
   <br/>
 
 <% if has_role?(:admin) %>
-  <%= link_to 'New Channel', new_channel_path, class:'button is-info' %>
+  <%= link_to 'Chủ đề mới', new_channel_path, class:'button is-info' %>
 <% end %>
 </div>
